@@ -1,0 +1,49 @@
+#!/usr/bin/python
+#
+# Copyright (c) 2015 Dell Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+#
+# THIS CODE IS PROVIDED ON AN #AS IS* BASIS, WITHOUT WARRANTIES OR
+# CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+#  LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+# FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+#
+# See the Apache Version 2.0 License for specific language governing
+# permissions and limitations under the License.
+#
+
+import sys
+import nas_switch_utils
+import nas_ut_framework as nas_ut
+
+
+def show_switch(args):
+    nas_switch_utils.show_switch(args)
+
+
+def set_switch_attrs(args):
+    ch = nas_switch_utils.create_switch_set_op(args)
+    nas_ut.get_cb_method("set")(ch)
+
+options = {
+    'show': show_switch,
+    'set': set_switch_attrs,
+}
+
+if __name__ == '__main__':
+    opt = None
+    if len(sys.argv) >= 2:
+        opt = sys.argv[1]
+    if opt is not None and opt not in options:
+        opt = None
+
+    if opt is None:
+        print "Missing args..."
+        for i in options:
+            print i
+        sys.exit(1)
+
+    options[opt](sys.argv[2:])
