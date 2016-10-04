@@ -22,4 +22,4 @@ libsonic_nas_l2_la_CXXFLAGS=-std=c++11
 
 libsonic_nas_l2_la_LDFLAGS=-shared -version-info 1:1:0
 
-libsonic_nas_l2_la_LIBADD=-lsonic_nas_linux -lsonic_common -lsonic_nas_common -lsonic_nas_ndi -lsonic_object_library -lsonic_cps_class_map -lsonic_logging
+libsonic_nas_l2_la_LIBADD=-lsonic_nas_linux -lsonic_common -lsonic_nas_common -lsonic_nas_ndi -lsonic_object_library -lsonic_logging
