@@ -19,7 +19,6 @@ See [sonic-nas-manifest](https://github.com/Azure/sonic-nas-manifest) for more i
 
 Copy the Debian files to the parent folder (default location of debian files) and run the `sonic_build` command.
 
-### Build command
-    sonic_build sonic-ndi-api-dev libsonic- -- clean binary
+BUILD CMD: sonic_build sonic-ndi-api-dev libsonic- -- clean binary
 
 (c) Dell 2016
